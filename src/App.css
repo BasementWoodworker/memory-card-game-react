@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  height: 300px;
+  width: 200px;
+  background-color: orange;
+}
+
+.card > * {
+  pointer-events: none;
+}
+
+.card > .image-placeholder {
+  height: 80%;
+  width: 90%;
+  background-color: chocolate;
+  margin: 10px;
+}
