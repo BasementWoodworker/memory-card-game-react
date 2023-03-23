@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Game from "./Components/Game";
 import GameOver from "./Components/GameOver"
+import Hint from "./Components/Hint";
 
 export default function App(props) {
   const [gamePhase, setGamePhase] = useState("play");
@@ -12,7 +13,12 @@ export default function App(props) {
   }, [gamePhase])
 
   switch (gamePhase) {
-    case "play": return <Game setGamePhase={setGamePhase} score={score} setScore={setScore}/>
+    case "play": return(
+    <React.Fragment>
+      <Game setGamePhase={setGamePhase} score={score} setScore={setScore}/>
+      <Hint/>
+    </React.Fragment>
+    )
     case "game over": return <GameOver setGamePhase={setGamePhase} score={score}/>
   }
 }

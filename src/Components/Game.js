@@ -30,9 +30,7 @@ export default function Game(props) {
         </div>
       )
     })
-    return(
-      <div className="card-container">{results}</div>
-    )
+    return results;
   }
 
   function clickCard(event) {
@@ -53,6 +51,6 @@ export default function Game(props) {
   }
 
   return(
-    <div>{cardsToJSX(currentCards)}</div>
+    <div className="card-container">{cardsToJSX(currentCards)}</div>
   )
 }
