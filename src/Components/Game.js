@@ -5,6 +5,10 @@ export default function Game(props) {
   const [cardAmount, setCardAmount] = useState(3);
   const [currentCards, setCurretCards] = useState(Cards.getRandomCards(cardAmount));
 
+  useEffect(function clearScore() {
+    props.setScore(0);
+  }, []);
+
   useEffect(() => {
     setCurretCards(Cards.getRandomCards(cardAmount));
   }, [cardAmount]);

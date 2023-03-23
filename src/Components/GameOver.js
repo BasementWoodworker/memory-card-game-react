@@ -5,6 +5,7 @@ export default function GameOver(props) {
     <div className="game-over">
       <h1>Game Over</h1>
       <div>Your score is {props.score}</div>
+      <button onClick={() => props.setGamePhase("play")}>Restart</button>
     </div>
   )
 }

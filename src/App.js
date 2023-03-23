@@ -13,6 +13,6 @@ export default function App(props) {
 
   switch (gamePhase) {
     case "play": return <Game setGamePhase={setGamePhase} score={score} setScore={setScore}/>
-    case "game over": return <GameOver score={score}/>
+    case "game over": return <GameOver setGamePhase={setGamePhase} score={score}/>
   }
 }
