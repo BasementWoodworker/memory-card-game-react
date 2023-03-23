@@ -7,21 +7,32 @@
 html,
 body {
   height: 100%;
+  background-color: rgb(43, 42, 42);
 }
 
 .card-container {
   display: flex;
+  flex-wrap: nowrap;
   gap: 20px;
+  width: 90%;
+  margin: 50px auto;
+  padding: 10px;
+  border: none;
 }
 
 .card {
   height: 300px;
   width: 200px;
-  background-color: orange;
+  background-color: rgb(228, 224, 217);
+  transition: 0.25s;
 }
 
 .card > * {
   pointer-events: none;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card > img {
@@ -29,4 +40,9 @@ body {
   width: 90%;
   margin: 10px;
   object-fit: cover;
+}
+
+.card > .name {
+  text-align: center;
+  font-size: 24px;
 }

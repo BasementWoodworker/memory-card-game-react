@@ -1,7 +1,10 @@
+
+
 class Card {
   constructor(name, imageSrc) {
     this.name = name;
     this.imageSrc = imageSrc;
+    this.id = 0;
     this.beenChosen = false;
   }
   choose() {
