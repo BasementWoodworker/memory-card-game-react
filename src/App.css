@@ -24,9 +24,9 @@ body {
   pointer-events: none;
 }
 
-.card > .image-placeholder {
+.card > img {
   height: 80%;
   width: 90%;
-  background-color: chocolate;
   margin: 10px;
+  object-fit: cover;
 }

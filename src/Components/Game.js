@@ -23,9 +23,10 @@ export default function Game(props) {
 
   function cardsToJSX(cards) {
     const results = cards.map(card => {
+      console.log(card);
       return(
         <div className="card" onClick={clickCard}>
-          <div className="image-placeholder"></div>
+          <img src={card.imageSrc}></img>
           <div className="name">{card.name}</div>
         </div>
       )
