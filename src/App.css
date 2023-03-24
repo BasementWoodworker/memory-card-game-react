@@ -62,7 +62,7 @@ body,
   border: 2px solid white;
   width: min-content;
   white-space: nowrap;
-  height: min-content;
+  height: 170px;
   margin: auto;
   padding: 8px;
   transition: 0.05s;
