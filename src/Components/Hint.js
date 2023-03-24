@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Hint(props) {
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(true);
   
   return(
     <div className={`hint ${hidden ? "hidden" : ""}`}>

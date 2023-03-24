@@ -2,19 +2,18 @@ import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 
 export default function Game(props) {
-  const [cardAmount, setCardAmount] = useState(10);
-  const [currentCards, setCurretCards] = useState(Cards.getRandomCards(cardAmount));
+  const [currentCards, setCurretCards] = useState(Cards.getRandomCards(props.level + 2));
 
   useEffect(function clearScore() {
     props.setScore(0);
   }, []);
 
   useEffect(() => {
-    setCurretCards(Cards.getRandomCards(cardAmount));
-  }, [cardAmount]);
+    setCurretCards(Cards.getRandomCards(props.level + 2));
+  }, [props.level]);
 
   function goToNewLevel() {
-    setCardAmount(cardAmount + 1);
+    props.setLevel(props.level + 1);
   }
 
   function checkWin() {
@@ -38,6 +37,7 @@ export default function Game(props) {
     const card = currentCards.find(card => card.name === currentCardName)
     if (card.beenChosen) {
       props.setGamePhase("game over");
+      props.setLevel(1);
       return;
     }
     props.setScore(props.score + 1);

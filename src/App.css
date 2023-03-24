@@ -11,6 +11,10 @@ body,
   background-color: rgb(43, 42, 42);
 }
 
+.info-board {
+  color: white;
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
