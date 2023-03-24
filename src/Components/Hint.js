@@ -10,7 +10,8 @@ export default function Hint(props) {
         <button onClick={() => setHidden(!hidden)}>{hidden ? "▽" : "△"}</button>
       </div>
       <p>This game is about memory</p>
-      <p>Click on all cards but don't click on any more than once</p>
+      <p>Click on each card to go to next level</p>
+      <p>Don't click on a card more than once</p>
     </div>
   )
 }

@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
-import Cards from "./Cards";
+import getRandomCards from "./Cards";
 
 export default function Game(props) {
-  const [currentCards, setCurretCards] = useState(Cards.getRandomCards(props.level + 2));
+  const [currentCards, setCurretCards] = useState(getRandomCards(props.level + 2));
 
   useEffect(function clearScore() {
     props.setScore(0);
   }, []);
 
   useEffect(() => {
-    setCurretCards(Cards.getRandomCards(props.level + 2));
+    setCurretCards(getRandomCards(props.level + 2));
   }, [props.level]);
 
   function goToNewLevel() {
+    if (props.level === 9) {
+      props.setWin(true);
+      props.setGamePhase("game end");
+      return;
+    }
     props.setLevel(props.level + 1);
   }
 
-  function checkWin() {
+  function checkRoundWin() {
     return currentCards.reduce((result, card) => !card.beenChosen ? false : result, true);
   }
 
@@ -36,14 +41,14 @@ export default function Game(props) {
     const currentCardName = event.target.querySelector(".name").textContent;
     const card = currentCards.find(card => card.name === currentCardName)
     if (card.beenChosen) {
-      props.setGamePhase("game over");
+      props.setGamePhase("game end");
       props.setLevel(1);
       return;
     }
     props.setScore(props.score + 1);
     if (props.score + 1 > props.bestScore) props.setBestScore(props.score + 1)
     card.choose();
-    if (checkWin()) {
+    if (checkRoundWin()) {
       console.log("GOING TO THE NEW LEVEL")
       goToNewLevel();
       return;

@@ -1,5 +1,3 @@
-
-
 class Card {
   constructor(name, imageSrc) {
     this.name = name;
@@ -14,9 +12,15 @@ class Card {
 
 Object.defineProperty(Array.prototype, "shuffle", {
   value: function() {
-    const copy = [...this];
-    copy.sort(() => Math.random() - 0.5);
-    return copy;
+    let currentIndex = this.length;
+    let randomIndex;
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      [this[currentIndex], this[randomIndex]] = [this[randomIndex], this[currentIndex]];
+    }
+    return this;
   }
 })
 
@@ -76,6 +80,4 @@ function getRandomCards(amount) {
   return result
 }
 
-export default {
-  getRandomCards
-}
+export default getRandomCards
