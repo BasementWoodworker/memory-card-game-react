@@ -9,6 +9,7 @@ export default function App(props) {
   const [gamePhase, setGamePhase] = useState("play");
   const [level, setLevel] = useState(1);
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
     console.log(gamePhase)
@@ -17,8 +18,8 @@ export default function App(props) {
   switch (gamePhase) {
     case "play": return(
     <React.Fragment>
-      <InfoBoard score={score} level={level}/>
-      <Game setGamePhase={setGamePhase} score={score} setScore={setScore} level={level} setLevel={setLevel}/>
+      <InfoBoard level={level} score={score} bestScore={bestScore}/>
+      <Game setGamePhase={setGamePhase} level={level} setLevel={setLevel} score={score} setScore={setScore} bestScore={bestScore} setBestScore={setBestScore}/>
       <Hint/>
     </React.Fragment>
     )

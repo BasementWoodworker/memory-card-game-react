@@ -5,7 +5,7 @@ export default function InfoBoard(props) {
     <div className="info-board">
       <h2>Level {props.level}</h2>
       <div>Score: {props.score}</div>
-      <div>props.record</div>
+      <div>Best score: {props.bestScore}</div>
     </div>
   )
 }

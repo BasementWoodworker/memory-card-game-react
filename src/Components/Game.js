@@ -41,6 +41,7 @@ export default function Game(props) {
       return;
     }
     props.setScore(props.score + 1);
+    if (props.score + 1 > props.bestScore) props.setBestScore(props.score + 1)
     card.choose();
     if (checkWin()) {
       console.log("GOING TO THE NEW LEVEL")
