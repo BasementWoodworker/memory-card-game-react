@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 
 export default function Game(props) {
-  const [cardAmount, setCardAmount] = useState(3);
+  const [cardAmount, setCardAmount] = useState(10);
   const [currentCards, setCurretCards] = useState(Cards.getRandomCards(cardAmount));
 
   useEffect(function clearScore() {
